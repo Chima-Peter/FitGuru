@@ -19,9 +19,6 @@ module.exports = {
     extend: {
       fontFamily: {
         "main": ['Signika']
-      },
-      backgroundImage: {
-        'footer': "url('./src/assets/images/footer_img.webp')",
       }
     },
   },

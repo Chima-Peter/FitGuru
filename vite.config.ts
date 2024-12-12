@@ -8,11 +8,6 @@ export default defineConfig(({ command }) => {
     plugins: [
       react(),
    ],
-   test: {
-      globals: true,
-      environment: 'jsdom',
-      setupFiles: './tests/setup.js'
-   },
     base: '/',
   }
 

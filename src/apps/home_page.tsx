@@ -25,7 +25,7 @@ import PricingPlan from "../components/ui/pricing_plan";
 import Reviews from "../components/ui/reviews";
 import { childVariants, containerVariants } from "../components/lib/motion";
 
-// import footer_img from '../assets/images/footer_img.webp'
+import footer_img from '../assets/images/footer_img.webp'
 
 
 const HomePage = () => {
@@ -241,7 +241,13 @@ const HomePage = () => {
         viewport={{ amount: 0.2, once: false }} 
         transition={{ duration: 1 }} 
         className="flex flex-col gap-12 relative">
-        <div className="items-center w-[100%] flex flex-col gap-4 text-white justify-center bg-footer py-16 px-4">
+        <div 
+          className="items-center w-[100%] flex flex-col gap-4 text-white justify-center py-16 px-4"
+          style={{
+            backgroundImage: `url(${footer_img})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}>
           <p className="text-sm xl:text-[16px] 2xl:text-[20px] font-light">
             Call us Today
           </p>
