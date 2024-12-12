@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import icon from '../../../assets/images/icon.svg'
 
 const MobileNav = () => {
-    const isActive = (hash: string) => location.hash === hash; // determining if a nav link matches the current location
-
     const [isScrolled, setIsScrolled] = useState(false)
 
     // add bg and shadow for nav onscroll event

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { motion } from 'motion/react'
 
 import { FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import { SlSocialFacebook } from "react-icons/sl";
@@ -22,6 +23,7 @@ import trainer3 from '../assets/images/trainer3.webp'
 // import meet2 from '../assets/images/meet_mentor2.webp'
 import PricingPlan from "../components/ui/pricing_plan";
 import Reviews from "../components/ui/reviews";
+import { childVariants, containerVariants } from "../components/lib/motion";
 
 // import footer_img from '../assets/images/footer_img.webp'
 
@@ -74,18 +76,29 @@ const HomePage = () => {
 
   return (
     <main className="flex flex-col gap-16 font-main overflow-hidden" id="home">
-      <section className="flex flex-col gap-0">
+      <motion.section
+         className="flex flex-col gap-0"
+         variants={containerVariants}
+         initial='hidden'
+         animate="visible">
         <section className="flex justify-between gap-6 flex-col lg:flex-row">
           <div className="py-12 w-[100%] lg:w-[50%] px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[130px] 2xl:px-[160px] flex flex-col gap-6 xl:gap-8 2xl:gap-10 pt-32">
-            <h1 className="uppercase text-5xl font-extrabold xl:text-[64px]">
+            <motion.h1 
+              className="uppercase text-5xl font-extrabold xl:text-[64px]"
+              variants={childVariants}>
               Elevate your workout
-            </h1>
-            <p className="text-[16px] font-light tracking-wide xl:text-[20px] 2xl:text-[24px]">
+            </motion.h1>
+            <motion.p 
+              variants={childVariants}
+              className="text-[16px] font-light tracking-wide xl:text-[20px] 2xl:text-[24px]">
               Welcome to FitGuru, where your fitness journey begins! Whether you're looking to build strength, improve endurance, or find your balance, our state-of-the-art facilities, expert trainers, and supportive community are here to help you achieve your goals. Let's make fitness a way of life—together!
-            </p>
-            <button type="button" className='bg-black w-fit rounded-xl xl:text-[24px] hover:shadow-lg text-white text-[16px] py-3 px-8 font-normal'>
+            </motion.p>
+            <motion.button 
+              type="button" 
+              variants={childVariants}
+              className='bg-black w-fit rounded-xl xl:text-[24px] hover:shadow-lg text-white text-[16px] py-3 px-8 font-normal'>
               Get Started
-            </button>
+            </motion.button>
             <div className="flex gap-6">
               <Link to="https://www.linkedin.com/in/chimaojimma/" target="_blank">
                 <SlSocialFacebook className="w-5 h-5 xl:w-8 xl:h-8 2xl:w-10 2xl:h-10" />
@@ -102,16 +115,22 @@ const HomePage = () => {
             </div>
           </div>
           <div className="bg-[#1F1F1F] w-[100%] lg:w-[30%] relative flex items-end">
-            <img src={home_img1} alt="START WORKING OUT TODAY" className="lg:absolute lg:-left-32 xl:static" />
+            <motion.img
+              variants={childVariants}
+              src={home_img1} 
+              alt="START WORKING OUT TODAY" className="lg:absolute lg:-left-32 xl:static" />
           </div>
         </section>
-        <div className="w-[100%] px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[130px] 2xl:px-[160px] flex justify-between py-10 xl:py-12  bg-black flex-wrap gap-y-6 sm:gap-y-8" id="about">
+        <motion.div
+           className="w-[100%] px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[130px] 2xl:px-[160px] flex justify-between py-10 xl:py-12  bg-black flex-wrap gap-y-6 sm:gap-y-8" 
+           id="about"
+           variants={childVariants}>
           <HomeList header="500+" firstParagraph="Happy Members" secondParagraph="Our community is growing fast" />
           <HomeList header="5+" firstParagraph="Year Experience" secondParagraph="Experience in various workouts" />
           <HomeList header="13+" firstParagraph="Certified Trainers" secondParagraph="Guidance at every step" />
           <HomeList header="90%" firstParagraph="Customer Satisfaction" secondParagraph="We ensure your steady progress" />
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
 
       <section className="flex flex-col gap-12 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[130px] 2xl:px-[160px]">
@@ -133,10 +152,25 @@ const HomePage = () => {
           </div>
           <div className="flex gap-0 w-[100%] lg:w-[45%] justify-center">
             <div className="hidden flex-col gap-2 md:flex">
-              <img src={upImg} alt="Train with us" className="hover:scale-110" />
-              <img src={lowerImg} alt="Gym setup" className="hover:scale-110" />
+              <motion.img 
+                whileInView={{ opacity: 1 }} 
+                initial={{ opacity: 0.4 }} 
+                viewport={{ amount: 0.2, once: false }} 
+                transition={{ duration: 1 }} 
+                src={upImg} alt="Train with us" className="hover:scale-110" />
+              <motion.img 
+                whileInView={{ opacity: 1 }} 
+                initial={{ opacity: 0.4 }} 
+                viewport={{ amount: 0.2, once: false }} 
+                transition={{ duration: 1 }} 
+                src={lowerImg} alt="Gym setup" className="hover:scale-110" />
             </div>
-            <img src={longImg} alt="Gym equipments" className="lg:w-[285px] lg:scale-110 l:hover:scale-125 md:w-[50%] w-[100%]" />
+            <motion.img 
+              whileInView={{ opacity: 1 }} 
+              initial={{ opacity: 0.4 }} 
+              viewport={{ amount: 0.2, once: false }} 
+              transition={{ duration: 1 }} 
+              src={longImg} alt="Gym equipments" className="lg:w-[285px] lg:scale-110 l:hover:scale-125 md:w-[50%] w-[100%]" />
           </div>
         </section>
       </section>
@@ -154,7 +188,13 @@ const HomePage = () => {
         <div className="w-[100%] flex justify-center flex-wrap gap-6 lg:gap-0 lg:flex-nowrap lg:justify-between 2xl:justify-center xl:gap-12 2xl:gap-32">
           {
             trainersList.map((trainer) => (
-              <div className="w-fit flex rounded-xl shadow-2xl flex-col relative" key={trainer.name}>
+              <motion.div 
+                className="w-fit flex rounded-xl shadow-2xl flex-col relative" 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ amount: 0.2, once: false }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                key={trainer.name}>
                 <img src={trainer.image} alt={trainer.name} className="rounded-t-xl border border-gray-300 opacity-60 w-[100%] md:w-[300px] xl:w-[400px] 2xl:w-[450px]" />
                 <div className="flex flex-col gap-2 w-[100%] md:w-[300px] xl:w-[400px] 2xl:w-[450px] p-4 hover:backdrop-blur-sm backdrop-blur-sm lg:backdrop-blur-none rounded-xl">
                   <p className="font-semibold text-lg">
@@ -164,7 +204,7 @@ const HomePage = () => {
                     {trainer.bio}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))
           }
         </div>
@@ -195,8 +235,12 @@ const HomePage = () => {
 
       <Reviews />
 
-      <section className="flex flex-col gap-12 relative">
-        {/* <img src={footer_img} alt="JOIN US AT THE GYM TODAY" /> */}
+      <motion.section 
+        whileInView={{ opacity: 1 }} 
+        initial={{ opacity: 0.4 }} 
+        viewport={{ amount: 0.2, once: false }} 
+        transition={{ duration: 1 }} 
+        className="flex flex-col gap-12 relative">
         <div className="items-center w-[100%] flex flex-col gap-4 text-white justify-center bg-footer py-16 px-4">
           <p className="text-sm xl:text-[16px] 2xl:text-[20px] font-light">
             Call us Today
@@ -208,7 +252,7 @@ const HomePage = () => {
             Our team is ready to answer your questions and help you get started on your fitness journey. Call us now to learn more about our programs, membership options, and facilities. Let’s achieve your goals together!
           </p>
         </div>
-      </section>
+      </motion.section>
     </main>
   )
 }
