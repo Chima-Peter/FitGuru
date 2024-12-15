@@ -26,7 +26,7 @@ const PricingPopUp = () => {
 
     return (
         <div className='w-[100%] h-[100vh] flex justify-center items-center fixed z-30 top-0 backdrop-brightness-[.2]'>
-            <motion.section className='w-[100%] md:w-[670px] xl:w-[750px] 2xl:w-[800px] asideScroll rounded-xl flex flex-col font-main gap-4 px-6 border border-gray-200 shadow-xl bg-white overflow-y-auto h-fit py-4'>
+            <motion.section className='w-[100%] md:w-[670px] xl:w-[750px] 2xl:w-[800px] asideScroll rounded-xl flex flex-col font-main gap-4 px-6 border border-gray-200 shadow-xl bg-white overflow-y-auto h-[90%] md:h-fit py-4'>
                 <div className='w-[100%] flex justify-between py-2 border-b'>
                     <div className='flex items-center gap-4'>
                         <img src={icon} alt="FitGuru" />
