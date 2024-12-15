@@ -59,7 +59,7 @@ const ReviewForm = () => {
                 <div className='flex justify-center gap-4 w-[100%]'>
                     {
                         reviewEmojis.map((value) => (
-                            <button title={value.meaning} type='button' key={value.emoji} className={`text-3xl xl:text-4xl 2xl:text-5xl border border-gray-200 rounded-full hover:bg-black ${userReview.icon === value.emoji ? 'bg-black scale-110 p-4' : 'bg-white p-3'}`} onClick={() => onInputChange(value.emoji)}>
+                            <button title={value.meaning} type='button' key={value.emoji} className={`text-lg md:text-3xl xl:text-4xl 2xl:text-5xl border border-gray-200 rounded-full hover:bg-black ${userReview.icon === value.emoji ? 'bg-black scale-110  w-12 h-12 md:w-16 md:h-16' : 'bg-white w-10 h-10 md:w-14 md:h-14'}`} onClick={() => onInputChange(value.emoji)}>
                                 {value.emoji}
                             </button>
                         ))
