@@ -7,6 +7,30 @@ html {
     scroll-behavior: smooth;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="text"] {
+  text-transform: capitalize;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* For Firefox */
+  appearance: textfield; /* For newer browsers */
+}
+
+.asideScroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: inherit;
+}
+.asideScroll::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+}
+
 @layer base {
     @font-face {
         font-family: 'Signika';

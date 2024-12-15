@@ -4,8 +4,8 @@ import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { FaPlus } from "react-icons/fa";
 
 
-import img from '../../assets/images/group_image.webp'
-import icon from '../../assets/images/icon.svg'
+import img from '../../../assets/images/group_image.webp'
+import icon from '../../../assets/images/icon.svg'
 
 
 const Reviews = () => {
@@ -81,10 +81,10 @@ const Reviews = () => {
       
     return (
         <section className="flex flex-col gap-4 mt-8" id='reviews'>
-            <h4 className="text-[16px] xl:text-xl 2xl:text-2xl font-light opacity-70 sm:px-6 md:px-10 lg:px-14 xl:px-[130px] 2xl:px-[160px]">
+            <h4 className="text-[16px] xl:text-xl 2xl:text-2xl font-light opacity-70 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[130px] 2xl:px-[160px]">
                 Reviews
             </h4>
-            <div className="flex md:flex-row md:justify-between w-[100%] flex-col gap-8 sm:px-6 md:px-10 lg:px-14 xl:px-[130px] 2xl:px-[160px]">
+            <div className="flex md:flex-row md:justify-between w-[100%] flex-col gap-8 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[130px] 2xl:px-[160px]">
                 <h4 className="text-4xl uppercase font-extrabold">
                 From You
                 </h4>

@@ -21,11 +21,12 @@ import trainer2 from '../assets/images/trainer2.webp'
 import trainer3 from '../assets/images/trainer3.webp'
 // import meet1 from '../assets/images/meet_mentor1.webp'
 // import meet2 from '../assets/images/meet_mentor2.webp'
-import PricingPlan from "../components/ui/pricing_plan";
-import Reviews from "../components/ui/reviews";
+import PricingPlan from "../components/ui/pricing/pricing_plan";
+import Reviews from "../components/ui/review/reviews";
 import { childVariants, containerVariants } from "../components/lib/motion";
 
 import footer_img from '../assets/images/footer_img.webp'
+import PopUpProvider from "../components/context/popup_context";
 
 
 const HomePage = () => {
@@ -230,8 +231,9 @@ const HomePage = () => {
         </div> */}
       </section>
 
-      <PricingPlan />
-
+      <PopUpProvider>
+        <PricingPlan />
+      </PopUpProvider>
 
       <Reviews />
 

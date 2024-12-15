@@ -1,9 +1,19 @@
 import { useState } from "react"
 import { AnimatePresence, motion } from 'motion/react'
+import PricingPopUp from "./pricing_popup"
+import usePopUpHook from "../../hooks/usePopUpHook"  
+
 
 const PricingPlan = () => {
     // state to determine whether payment is monthly or annually; if false = monthly, true = annually
     const [duration, setDuration] = useState(false)
+
+    const { popup, setPopUp } = usePopUpHook()
+
+    const openPopUp = () => {
+        setPopUp(true)
+    }
+
 
     const monthlyPricing = [
         {
@@ -48,11 +58,11 @@ const PricingPlan = () => {
         setDuration(true)
     }
   return (
-    <section className="flex flex-col gap-4 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[130px] 2xl:px-[160px] mt-8" id="plans">
-        <h4 className="text-[16px] xl:text-xl 2xl:text-2xl font-light opacity-70">
+    <section className={`flex flex-col gap-4 mt-8`} id="plans">
+        <h4 className="text-[16px] xl:text-xl 2xl:text-2xl font-light opacity-70 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[130px] 2xl:px-[160px]">
             Pricing Plan
         </h4>
-        <div className="flex md:flex-row md:justify-between w-[100%] flex-col gap-8">
+        <div className="flex md:flex-row md:justify-between w-[100%] flex-col gap-8 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[130px] 2xl:px-[160px]">
             <h4 className="text-4xl uppercase font-extrabold">
             Join Us Today
             </h4>
@@ -86,7 +96,8 @@ const PricingPlan = () => {
                 </motion.button>
             </div>
         </div>
-        <div className="flex flex-col flex-wrap lg:flex-nowrap md:flex-row md:justify-between xl:justify-center xl:gap-16 2xl:gap-32 w-[100%] mt-10 gap-y-8">
+
+        <div className="flex flex-col flex-wrap lg:flex-nowrap md:flex-row md:justify-between xl:justify-center xl:gap-16 2xl:gap-32 w-[100%] mt-10 gap-y-8 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-[130px] 2xl:px-[160px]">
             <AnimatePresence mode="wait">
                 {!duration
                     ? monthlyPricing.map((value) => (
@@ -109,7 +120,7 @@ const PricingPlan = () => {
                                     ))}
                                 </ul>
                             </div>
-                            <button className="w-[100%] bg-black text-white py-2 text-center text-[16px] font-semibold rounded-lg align-bottom group-hover/parent:bg-white group-hover/parent:text-black">
+                            <button onClick={openPopUp} className="w-[100%] bg-black text-white py-2 text-center text-[16px] font-semibold rounded-lg align-bottom group-hover/parent:bg-white group-hover/parent:text-black">
                                 Choose Plan
                             </button>
                         </motion.div>
@@ -134,13 +145,18 @@ const PricingPlan = () => {
                                     ))}
                                 </ul>
                             </div>
-                            <button className="w-[100%] bg-black text-white py-2 text-center text-[16px] font-semibold rounded-lg align-bottom group-hover/parent:bg-white group-hover/parent:text-black">
+                            <button onClick={openPopUp} className="w-[100%] bg-black text-white py-2 text-center text-[16px] font-semibold rounded-lg align-bottom group-hover/parent:bg-white group-hover/parent:text-black">
                                 Choose Plan
                             </button>
                         </motion.div>
                     ))}
             </AnimatePresence>
         </div>
+
+        {/* popup */}
+        {
+            popup && <PricingPopUp />
+        }
     </section>
   )
 }
