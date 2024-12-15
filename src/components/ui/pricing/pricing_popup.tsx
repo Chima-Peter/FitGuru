@@ -13,6 +13,7 @@ const PricingPopUp = () => {
 
     // list of all steps
     const popUpSteps = [
+
         <PricingBasicDetails />,
         <PricingMembershipDetails />,
         <PricingThanks />

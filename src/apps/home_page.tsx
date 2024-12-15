@@ -235,7 +235,9 @@ const HomePage = () => {
         <PricingPlan />
       </PopUpProvider>
 
-      <Reviews />
+      <PopUpProvider>
+        <Reviews />
+      </PopUpProvider>
 
       <motion.section 
         whileInView={{ opacity: 1 }} 

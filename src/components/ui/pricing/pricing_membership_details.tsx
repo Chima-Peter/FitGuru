@@ -84,10 +84,9 @@ const PricingMembershipDetails = () => {
                     durationError: validateInput.duration.error,
                     start_dateError: validateInput.start_date.error
                 })
-                console.log(validateInput.start_date.error)
                 setIsLoading(false) // stop loading animation when error occurs
             }
-        }, 2000)
+        }, 1000)
     }
 
     return (
@@ -125,7 +124,7 @@ const PricingMembershipDetails = () => {
                             ))
                         }
                     </div>
-                    <PricingButton loading={isLoading} />
+                    <PricingButton loading={isLoading} text="Next" />
                 </form>
             </div>
         </section>

@@ -69,6 +69,12 @@ const PricingBasicDetails = () => {
         setBasicDetailsError({...basicDetailsError, [e.target.name + 'Error']: '' }) // clear error message when input is changed
     }
 
+    const onInputChangeSub = (e: React.ChangeEvent<HTMLInputElement>) => {
+        // update value of input as user types
+        setBasicDetails({ ...basicDetails, [e.target.name]: e.target.value })
+        setBasicDetailsError({...basicDetailsError, [e.target.name + 'Error']: true }) // clear error message when input is changed
+    }
+
     const onSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         // update selected option of dropdown
         setBasicDetails({...basicDetails, gender: e.target.value })
@@ -111,7 +117,7 @@ const PricingBasicDetails = () => {
                 })
                 setIsLoading(false) // stop loading animation when error occurs
             }
-        }, 2000)
+        }, 1000)
     }
   return (
     <section className="flex flex-col gap-6">
@@ -149,11 +155,11 @@ const PricingBasicDetails = () => {
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
-                    <Input type="number" value={basicDetails.age} name="age" placeholder="Enter age" error={!basicDetailsError.ageError} errorMessage="" onInputChange={onInputChange} widthDiff={false} />
-                    <Input type="number" value={basicDetails.height} name="height" placeholder="Enter height" error={!basicDetailsError.heightError} errorMessage="" onInputChange={onInputChange} widthDiff={false} />
-                    <Input type="number" value={basicDetails.weight} name="weight" placeholder="Enter weight" error={!basicDetailsError.weightError} errorMessage="" onInputChange={onInputChange} widthDiff={false} />
+                    <Input type="number" value={basicDetails.age} name="age" placeholder="Enter age" error={!basicDetailsError.ageError} errorMessage="" onInputChange={onInputChangeSub} widthDiff={false} />
+                    <Input type="number" value={basicDetails.height} name="height" placeholder="Enter height" error={!basicDetailsError.heightError} errorMessage="" onInputChange={onInputChangeSub} widthDiff={false} />
+                    <Input type="number" value={basicDetails.weight} name="weight" placeholder="Enter weight" error={!basicDetailsError.weightError} errorMessage="" onInputChange={onInputChangeSub} widthDiff={false} />
                 </div>
-                <PricingButton loading={isLoading} />
+                <PricingButton loading={isLoading}  text="Next" />
             </form>
         </div>
     </section>

@@ -6,9 +6,18 @@ import { FaPlus } from "react-icons/fa";
 
 import img from '../../../assets/images/group_image.webp'
 import icon from '../../../assets/images/icon.svg'
+import usePopUpContext from '../../hooks/usePopUpHook';
+import ReviewPopUp from './review_pop';
 
 
 const Reviews = () => {
+    const { review, setReview } = usePopUpContext()
+
+    const openPopUp = () => {
+        setReview(true) // open the popup
+    }
+
+
     const [reviews, setReviews] = useState([
         {
           name: "John Doe",
@@ -88,7 +97,7 @@ const Reviews = () => {
                 <h4 className="text-4xl uppercase font-extrabold">
                 From You
                 </h4>
-                <button className="w-fit flex gap-1 items-center py-2 px-6 bg-black text-white text-center text-sm rounded-lg self-end">
+                <button onClick={openPopUp} className="w-fit flex gap-1 items-center py-2 px-6 bg-black text-white text-center text-sm rounded-lg self-end">
                   <FaPlus className="w-2 h-2" />
                     <p>
                       Give Review
@@ -143,6 +152,9 @@ const Reviews = () => {
                     </div>
                 </div>
             </div>
+            {
+              review && <ReviewPopUp />
+            }
         </section>
     )
 }
