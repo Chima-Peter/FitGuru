@@ -1,0 +1,31 @@
+services:
+  frontend: 
+    build: .
+    environment:
+      - APP_NAME=app1
+    expose:
+      - "5173"
+
+  frontend1: 
+    build: .
+    environment:
+      - APP_NAME=app2
+    expose:
+      - "5173"
+
+  frontend2: 
+    build: .
+    environment:
+      - APP_NAME=app3
+    expose:
+      - "5173"
+
+  nginx:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - frontend1
+      - frontend2
+    
