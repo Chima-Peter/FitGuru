@@ -11,9 +11,5 @@ export default defineConfig(({ command }) => {
     base: '/',
   }
 
-  if (command !== 'serve') {
-    config.base = '/FitGuru/'
-  }
-
   return config
 })
